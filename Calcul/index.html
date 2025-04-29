@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculatrice Dark/Light</title>
+    <style>
+        :root {
+            --bg-color: #f0f0f0;
+            --calc-bg: #ffffff;
+            --btn-number: #e0e0e0;
+            --btn-operator: #ff9500;
+            --btn-clear: #a5a5a5;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+        }
+
+        /* Dark Mode */
+        .dark-mode {
+            --bg-color: #121212;
+            --calc-bg: #1e1e1e;
+            --btn-number: #505050;
+            --btn-clear: #333333;
+            --text-dark: #ffffff;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: var(--bg-color);
+            font-family: Arial, sans-serif;
+            transition: background 0.3s;
+        }
+
+        .calculator {
+            background: var(--calc-bg);
+            border-radius: 15px;
+            padding: 20px;
+            width: 220px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .display {
+            background: var(--btn-number);
+            height: 60px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 0 15px;
+            font-size: 2em;
+            color: var(--text-dark);
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .btn {
+            height: 50px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .number {
+            background: var(--btn-number);
+            color: var(--text-dark);
+        }
+
+        .operator {
+            background: var(--btn-operator);
+            color: var(--text-light);
+        }
+
+        .clear {
+            background: var(--btn-clear);
+            color: var(--text-dark);
+        }
+
+        .equals {
+            background: var(--btn-operator);
+            color: var(--text-light);
+            grid-row: span 2;
+            height: auto;
+        }
+
+        .zero {
+            grid-column: span 2;
+        }
+
+        /* Toggle Switch */
+        .theme-switch {
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+        }
+
+        .theme-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(30px);
+        }
+
+        /* Cache la checkbox */
+        #theme-toggle {
+            display: none;
+        }
+
+        /* Change le mode quand la checkbox est cochée */
+        #theme-toggle:checked ~ .calculator-container .calculator {
+            filter: invert(1) hue-rotate(180deg);
+        }
+
+        #theme-toggle:checked ~ .theme-label::before {
+            content: "☀️ Light";
+        }
+
+        .theme-label::before {
+            content: "🌙 Dark";
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox" id="theme-toggle">
+    <label for="theme-toggle" class="theme-label"></label>
+    
+    <div class="calculator-container">
+        <div class="calculator">
+            <div class="display">0</div>
+            <div class="buttons">
+                <button class="btn operator">+</button>
+                <button class="btn operator">-</button>
+                <button class="btn operator">×</button>
+                <button class="btn operator">÷</button>
+                
+                <button class="btn number">7</button>
+                <button class="btn number">8</button>
+                <button class="btn number">9</button>
+                
+                <button class="btn number">4</button>
+                <button class="btn number">5</button>
+                <button class="btn number">6</button>
+                
+                <button class="btn number">1</button>
+                <button class="btn number">2</button>
+                <button class="btn number">3</button>
+                
+                <button class="btn number zero">0</button>
+                <button class="btn number">.</button>
+                <button class="btn clear">AC</button>
+                
+                <button class="btn equals">=</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
