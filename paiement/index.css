@@ -1,0 +1,71 @@
+ /* Styles pour le canvas */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Place le canvas en arrière-plan */
+}
+
+/* Styles pour le corps de la page */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: black;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    gap: 100px;
+    margin-top: -100px;
+}
+
+/* Styles pour le texte de bienvenue */
+.welcome-text {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-align: center;
+}
+
+.line1 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    letter-spacing: 25px;
+}
+
+.line2 {
+    background: linear-gradient(45deg, #8a2be2, #ff1493);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.line2:hover {
+    background: linear-gradient(45deg, #ff1493, #8a2be2);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+/* Styles pour les icônes */
+.icons {
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+
+.icons i {
+    color: #8A2BE2;
+    padding: 15px;
+    transition: all 0.3s ease;
+}
+
+.icons i:hover {
+    color: #FF1493;
+}

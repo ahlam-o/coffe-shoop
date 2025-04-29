@@ -1,0 +1,36 @@
+*{
+    padding:0;
+    margin:0;
+}
+body{
+    background: linear-gradient(TO right,#4facfe, #00f2fe);
+}
+header{
+    text-align: center; /* centre le text à l'interieur du header*/
+    width: 100%; /*prend toute la largeur de la page*/
+    background: rgb(0, 0, 0, 0.3);
+    color: white; /* rend le text de header en blanc*/
+    height: 240px; /* Définit une hauteur fixe du header*/
+}
+.logo{
+    width: 140px; 
+    margin-top: 20px;
+}
+.form-container form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:10px;
+    background-color: white;
+    border-radius: 10px; /* Arrondit les coins du formulaire de 10px */
+    padding: 30px; /* Ajoute un espace intérieur de 30px autour des éléments*/
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    max-width: 400px; /* le formulaire ne dépassera pas 400px de largeur*/
+    margin: auto; /* centre le formulaire horizentalement*/
+    margin-top: 50px;
+    
+}
+input{
+    width: 100%;
+    font-size: larger;
+     }
